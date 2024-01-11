@@ -18,6 +18,11 @@ from django.urls import path, include
 
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view as swagger_get_schema_view
+from rest_framework.authtoken.views import obtain_auth_token
+
+from autocompany.views import UserCreateAPIView
+
+
 
 schema_view = swagger_get_schema_view(
     openapi.Info(
@@ -32,6 +37,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', 
         include([
+            # path('post/', include(('post.api.urls', 'post'), namespace='posts')),
+            path('api/token/', obtain_auth_token, name='obtain-token'),  # DRF token authentication
+            # path('api/token/', obtain_auth_token, {'serializer_class': CustomTokenSerializer}, name='obtain-token'),
+            path('register/', UserCreateAPIView.as_view(), name='register-user'),
             path('product/', include(('product.api.urls', 'product'), namespace='products')),
             path('swagger/schema/', schema_view.with_ui('swagger', cache_timeout=0), name="swagger-schema"),
         ])

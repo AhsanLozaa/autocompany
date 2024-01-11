@@ -38,7 +38,7 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Order #{self.id} - {self.shopping_cart.client_name}"
+        return f"Order #{self.id} - {self.shopping_cart}"
 
 class DeliveryDateTime(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)

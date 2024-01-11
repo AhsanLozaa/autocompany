@@ -1,55 +1,27 @@
-# Assignment
+To seeed the data ->  
+python3 seed_data.py
 
-## Oh, hello!
+1.) please run ./setup.sh to setup the app
+Note that it will creatre a super admin user (username: admin, password: adminpass)
 
-First of all, awesome that you want to join our team! We already know that you're a cool person, but now we just want to know if you're a cool coder as well! To that end we've set up a basic exercise for you to complete.
+2.) create a .env file in the root of the project and add the folowing (add the values from the settings in your environment)
+DB_NAME=test1
+DB_USER=postgres
+DB_PASSWORD=postgres
+DB_HOST=localhost
+DB_PORT=5432
 
-**Our tech stack!**
+3.) Run these commands to make the database migrations
+python3 manage.py makemigrations autocompany
+python3 manage.py migrate autocompany
+python3 manage.py makemigrations product
+python3 manage.py migrate product
 
-Before we start off, let me elaborate about our tech stack. For most projects, we use the following technologies:
+4.) Activate the venv
+source venv/bin/activate
 
-- Python, for rapid development
-- Relational database, we mostly use PostgreSQL
-- Widely accepted frameworks, we mostly use the Django Framework
-- Database ORM, because using a standard is faster and more secure (default provided by Django)
+4.) Run the app
+python3 manage.py runserver
 
-## The assignment
-
-A company specialised in car parts wants to modernise their company, and start selling their parts online. Being the pro car salesmen that they are, they decided to develop the front-end via another agency. They entrust the back-end to none other than Label A.
-
-After some initial research, we've defined the following user stories on top of our backlog:
-
-- As a company, I want all my products in a database, so I can offer them via our new platform to customers
-- As a client, I want to add a product to my shopping cart, so I can order it at a later stage
-- As a client, I want to remove a product from my shopping cart, so I can tailor the order to what I actually need
-- As a client, I want to order the current contents in my shopping cart, so I can receive the products I need to repair my car
-- As a client, I want to select a delivery date and time, so I will be there to receive the order
-- As a client, I want to see an overview of all the products, so I can choose which product I want
-- As a client, I want to view the details of a product, so I can see if the product satisfies my needs
-
-Develop an API according to the user stories defined above. You should not spend more than 8 hours on this exercise, so put on your MVP glasses and prioritise according to what you think the product should minimally entail.
-
-Included in this repository:
-
-- A freshly installed Django Framework (with not admin user -> go to this page to see how to create one: https://docs.djangoproject.com/en/1.8/intro/tutorial02/)
-- For convenience you can use .sqllite which is already configured in the project instead of PostgreSQL
-- Bonus points if you can include PostgreSQL in a Docker setup -> base Dockerfile is included
-
-We can make the following assumptions:
-
-- We don't have to worry about the front-end, but should think of a data format a JavaScript application can handle
-- We don't need to worry about the payment of the order. Who needs money anyway?
-
-How to score bonus points (ergo: we really advise you to tackle it this way):
-
-- Implement a RESTful API
-- Use a ORM
-- Document how we can set up and instantiate the project, so we can easily test it functionally
-
-If you have any questions, feel free to contact us! Any feedback on this exercise is always welcome!
-
-**Want to run the project in Docker?**
-
-- `docker build -t autocompany .`
-- ` docker run -p 80:80 -d autocompany`
-- Navigate to `http://127.0.0.1/`
+5.) You can access the swagger api doc in this url
+http://localhost:8000/api/v1/swagger/schema/
