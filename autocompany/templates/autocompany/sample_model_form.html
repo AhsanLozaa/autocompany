@@ -1,0 +1,10 @@
+<!-- myapp/templates/myapp/sample_model_form.html -->
+
+<h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Sample Model</h2>
+
+<form method="post" action="">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'sample_model_list' %}">Cancel</a>

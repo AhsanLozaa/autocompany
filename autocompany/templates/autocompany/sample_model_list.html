@@ -1,0 +1,13 @@
+<!-- myapp/templates/myapp/sample_model_list.html -->
+
+<h2>Sample Model List</h2>
+
+<ul>
+  {% for sample in samples %}
+  <li>
+    <a href="{% url 'sample_model_detail' pk=sample.pk %}">{{ sample.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'sample_model_create' %}">Create New Sample</a>

@@ -1,0 +1,12 @@
+<!-- myapp/templates/myapp/sample_model_confirm_delete.html -->
+
+<h2>Delete Sample Model</h2>
+
+<p>Are you sure you want to delete "{{ sample.name }}"?</p>
+
+<form method="post" action="">
+  {% csrf_token %}
+  <button type="submit">Yes, delete it</button>
+</form>
+
+<a href="{% url 'sample_model_list' %}">No, go back</a>

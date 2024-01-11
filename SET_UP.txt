@@ -1,0 +1,16 @@
+// create a virtual environment
+* python3 -m venv venv
+// activate the virtual environment
+* -> Unix or MacOS: source venv/bin/activate
+* -> Windows: .\venv\Scripts\activate
+// Install the dependencies
+* pip3 install -r requirements.txt
+// Apply Database Migration
+* python3 manage.py migrate
+// Crate a super user
+* python3 manage.py createsuperuser
+enter username
+enter email
+enter password
+enter confirm password
+* 

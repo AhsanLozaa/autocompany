@@ -1,0 +1,21 @@
+# docker-compose.yml
+
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: autocompany
+      POSTGRES_USER: autocompany
+      POSTGRES_PASSWORD: autocompany
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:80
+    volumes:
+      - .:/code
+    ports:
+      - "80:80"
+    depends_on:
+      - db
