@@ -12,6 +12,7 @@ from django.db.models import F
 class ProductViewset(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    
 
 class ShoppingCartViewset(ModelViewSet):
     queryset = ShoppingCart.objects.all()

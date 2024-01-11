@@ -1,0 +1,8 @@
+1.) please run ./setup.sh to run the app
+
+2.) create a .env file in the root of the project and add the folowing (add the values from the settings in your environment)
+    DB_NAME=test1
+    DB_USER=postgres
+    DB_PASSWORD=postgres
+    DB_HOST=localhost
+    DB_PORT=5432
