@@ -19,7 +19,7 @@ python3 manage.py migrate
 echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'adminpass')" | python3 manage.py shell
 
 # Run the Django development server
-python3 manage.py runserver
+# python3 manage.py runserver
 
 # Deactivate virtual environment
 # deactivate
